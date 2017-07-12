@@ -1,0 +1,42 @@
+###################################################################################################
+# This is the template for famous quotations on quantum computation
+###################################################################################################
+# - creator: [quotation creator]
+#  content: [quotation content]
+###################################################################################################
+- creator: Richard P. Feynman
+  content: Can physics be simulated by a universal computer? ... 
+           the physical world is quantum mechanical, and therefore the proper problem 
+           is the simulation of quantum physics ... the full description of quantum 
+           mechanics for a large system R particles ... has too many variables, 
+           it cannot be simulated with a normal computer with a number of elements 
+           proportional to R ... but it can be simulated with quantum computer 
+           elements. ... Can a quantum system be probabilistically simulated by a classical 
+           (probabilistic, I'd assume) universal computer? ... If you take the computer 
+           to be the classical kind I've described so far ... 
+           the answer is certainly, No! 
+
+- creator: David Deutsch
+  content: The theory of computation has traditionally been studied almost entirely 
+           in the abstract, as a topic in pure mathematics. 
+           This is to miss the point of it. Computers are physical objects, 
+           and computations are physical processes. 
+           What computers can or cannot compute is determined by the laws 
+           of physics alone, and not by pure mathematics.
+
+- creator: Jennifer and Peter Shor
+  content: If computers that you build are quantum, <br>
+           Then spies everywhere will all want 'em. <br>
+           Our codes will all fall, <br>
+           And they'll read our email, <br>
+           Till we get crypto that's quantum, and daunt 'em. <br>
+
+- creator: Volker Strassen
+  content: To read our E-mail, how mean <br>
+           of the spies and their quantum machine; <br>
+           be comforted though, <br>
+           they do not ye know <br>
+           how to factorize twelve or fifteen. <br>
+
+- creator: Niels Bohr
+  content: Anybody who is not shocked by quantum theory has not understood it.

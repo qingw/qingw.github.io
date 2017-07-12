@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<article>
+  <h1 class="inner">
+    {{ page.title }}
+  </h1>
+
+  <p class="meta">{{ page.date | date: "%A %-d %B %Y" }}</p>
+
+  <div id="menu"></div>
+  <div id="main" class="span9">
+  <div class="post">
+    {{ content }}
+  </div>
+  </div>
+</article>
+
+<p></p>
+<p></p>
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Share System -->
+<!-- ----------------------------------------------------------------- -->
+
+<div class="separator"></div>
+
+<section class="comments inner">
+
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"kunwang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+</section>
+<!-- Duoshuo Comment END -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment System -->
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment BEGIN -->
+<!-- <div class="separator"></div> -->
+<!-- <section class="comments inner">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'quantummanme';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</section> -->
+<!-- Disqus Comment END -->
+
+

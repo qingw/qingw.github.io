@@ -1,0 +1,102 @@
+###################################################################################################
+# This is the template for talks
+###################################################################################################
+# - title: [talk title]
+# placedate: [place and date]
+# url: [download url] 
+# supplement: [talk supplement type, be 'Slide', 'Lecture', 'Broke' or 'Link'] 
+###################################################################################################
+- title: Grover Walks on a Line with Absorbing Boundaries
+  placedate: National Quantum Optics Conference 2016, Lanzhou, Gansu China.
+  url: /files/talks/20160807-three-state-quantum-walks.pptx
+  supplement: Slide
+
+
+
+- title: Oscillating Localization, Defects and Disorders
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, March 15, 2016.
+  url: /files/talks/20160315-oscillating-localization.pptx
+  supplement: Slide
+
+- title: Annual Summary and Tasks Assignment
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, January 22, 2016. This seminar was not offically announced, only the students from two groups participated.
+  supplement: Broke
+
+- title: Annual Summary
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, January 15, 2016.
+  url: /files/talks/20160115-annual-summary.pptx
+  supplement: Slide
+
+- title: Quantum Walks with Disorders
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, December 25, 2015.
+  url: /files/talks/20151225-quantum-walk-with-disorder.pptx
+  supplement: Slide
+
+- title: Quantum Walk with Restart (II)
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, December 3, 2015.
+  url: /files/talks/20151203-quantum-walk-with-restart.pptx
+  supplement: Slide
+
+- title: Summary of Recent Works
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, November 20, 2015.
+  supplement: Broke
+
+- title: Quantum Walk with Restart
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, November 4, 2015.
+  url: /files/talks/20151104-quantum-walk-with-restart.pdf
+  supplement: Slide
+
+- title: 请问您是海狸先生吗？
+  placedate: National Conference on Theoretical Computer Science (NCTCS), November 1, 2015.
+  url: /files/talks/20151101-on-four-non-computable-functions.pptx
+  supplement: Slide
+
+- title: Simulations of Three State Discrete Quantum Walks
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, September 11, 2015.
+  supplement: Broke
+  
+- title: CNOT Gate Implemented by Quantum Teleportation
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, April 24, 2015.
+  url: /files/talks/20150424-quantum-teleportation-cnot-gate.pdf
+  supplement: Slide
+
+- title: Algorithms based on Quantum Walk
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, April 10, 2015.
+  supplement: Broke
+
+- title: Introduction to Quantum Algorithms - Grover Algorithm
+  placedate: Seminar held by quantum computing group of NJU, March 12, 2015.
+  supplement: Broke
+
+- title: Introduction to Quantum Algorithms - Simon and Bernstein-Vazirani Algorithm
+  placedate: Seminar held by quantum computing group of NJU, February 4, 2015.
+  supplement: Broke
+
+- title: Introduction to Quantum Algorithms - Deutsch and Deutsch-Jozsa Algorithm
+  placedate: Seminar held by quantum computing group of NJU, January 28, 2015.
+  supplement: Broke
+
+- title: Introduction to Three State Discrete Quantum Walks
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, January 20, 2015.  
+  supplement: Broke
+
+- title: Introduction to One-Way Quantum Computation
+  placedate: Workshop held by quantum optics group of NJU, December 27, 2014.
+  url: /files/talks/20141227-one-way-quantum-computation.pdf
+  supplement: Slide 
+
+- title: One Dimensional Discrete Quantum Walk
+  placedate: Workshop held by Hasso Plattner Institute, Potsdam, Germany, June 25, 2014.
+  url: /files/talks/20140625-one-dimensional-quantum-walk.pdf
+  supplement: Slide 
+
+- title: Introduction to Quantum Cellular Automata
+  placedate: Seminar held by quantum computing group and quantum optics group of NJU, April 11, 2014.
+  url: /files/talks/20140411-quantum-cellular-automata.pdf
+  supplement: Slide 
+
+- title: Quantum Walks on Element Disctinctness Problem
+  placedate: Course of Advance in Computer Science and Technology, CS, NJU, November 27, 2013.
+  url: /files/talks/20131107-element-disctinctnessslides.pptx
+  supplement: Slide 
+

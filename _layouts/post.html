@@ -1,0 +1,127 @@
+---
+layout: default
+---
+
+{% if page.photo %}
+<div class="post-photo" style="background-image: url('/images/posts/{{ page.photo }}')">
+
+</div>
+{% endif %}
+
+<article>
+  <h1 class="inner">
+    {{ page.title }}
+  </h1>
+
+  <p class="meta">{{ page.date | date: "%A %-d %B %Y" }}</p>
+
+  <div id="menu"></div>
+  <div id="main" class="span9">
+  <div class="post">
+    {{ content }}
+  </div>
+  </div>
+</article>
+
+<p></p>
+<p></p>
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Share System -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- JiaThis Button BEGIN -->
+<!-- <section class="comments inner">
+<div class="jiathis_style">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+</section> -->
+<!-- JiaThis Button END -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Subscribe System -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- <section class="post-footer-self-promotion inner">
+	Thanks for reading! If you are interested in what I shared, you can also follow me in 
+	<a href="https://github.com/kun-wang/">GitHub</a>,
+	<a href="http://weibo.com/u/2474723950/">Weibo</a>.
+	Also, you can subscribe to my posts: 
+	<form action="http://saunier.us8.list-manage.com/subscribe/post?u=3e666bd315f84f1bbdfe80c3b&amp;id=0494cf26c5" method="post"target="_blank">
+	  <input type="email" class="form-control" name="EMAIL" placeholder="your email"
+		><input type="submit" value="Subscribe to my posts" >
+	  Fear not, I hate spam too.
+	</form>
+	<div id="more-articles">
+	  {% if has_res %}
+		<p>Since you scrolled this far, you might as well take a look at some other things I wrote !</p>
+		<ul>
+		  {{ res }}
+		</ul>
+		<p>
+		  ... or <a href="/blog">some other article</a> from my blog.
+		  Oh and I also take <a href="/photos">pictures</a>!
+		</p>
+	  {% else %}
+	  <p>
+		If you like this post, you can also have a look at <a href="/blog">more posts of mine</a>.
+	  </p>
+	  {% endif %}
+	</div>
+  </div>
+</section> -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Duoshuo Comment System -->
+<!-- ----------------------------------------------------------------- -->
+<!-- Duoshuo Comment BEGIN -->
+
+<div class="separator"></div>
+
+<section class="comments inner">
+
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"kunwang"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+</section>
+<!-- Duoshuo Comment END -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment System -->
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment BEGIN -->
+<!-- <div class="separator"></div> -->
+<!-- <section class="comments inner">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'quantummanme';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</section> -->
+<!-- Disqus Comment END -->
+
+

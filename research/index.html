@@ -1,0 +1,122 @@
+---
+layout: default
+title: Qingwu Wang - Research
+description: Qingwu Wang's research
+category: research
+---
+
+<div class="inner">
+
+<!-- -------------------------------------------------------------- -->
+<!-- Papers ------------------------------------------------------- -->
+<!-- -------------------------------------------------------------- -->
+<h1>Papers</h1><a name="papers"></a>
+
+<ul>
+{% for paper in site.data.papers %}
+  <div>
+    <li> 
+	    <p>{{ paper.author }}. <strong><i>{{ paper.title }}</i></strong>. {{ paper.publisher }}, {{ paper.year }}. {{ paper.notes }}. 
+	    <u><a href="{{ paper.url }}">{{ paper.supplement }}</a></u></p>
+	</li>
+  </div>
+{% endfor %}
+</ul>
+
+<p>[<a href="#top" target="_self"><i>go top</i></a>]</p>
+<hr></hr>
+
+<!-- -------------------------------------------------------------- -->
+<!-- Talks -------------------------------------------------------- -->
+<!-- -------------------------------------------------------------- -->
+<h1>Talks</h1><a name="talks"></a>
+
+<ul>
+{% for talk in site.data.talks %}
+  <div>
+    <li> 
+	    <p><strong><i>{{ talk.title }}</i></strong>, {{ talk.placedate }}
+	    <u><a href="{{ talk.url }}">{{ talk.supplement }}</a></u></p>
+	</li>
+  </div>
+{% endfor %}
+</ul>
+
+<p>[<a href="#top" target="_self"><i>go top</i></a>]</p>
+<hr></hr>
+
+<!-- -------------------------------------------------------------- -->
+<!-- Visiting Scholar --------------------------------------------- -->
+<!-- -------------------------------------------------------------- -->
+<h1>Visiting Scholar</h1><a name="visiting"></a>
+
+<div>
+  <ul>
+    <li>
+      <p><strong>Oct. 2012</strong>, visiting trip to University of Oxford,
+          University of Cambridge and University of Southampton.</p>
+    </li>
+    <li>
+      <p><strong>Jun. 2014</strong>, visiting trip to Hasso Plattner Institute for Software Systems Technology, University of Potsdam, Germany. Gave a talk entitled <i>One Dimensional Discrete Quantum Walk</i>.</p>
+    </li>
+  </ul>
+</div>
+
+<p>[<a href="#top" target="_self"><i>go top</i></a>]</p>
+<hr></hr>
+
+<!-- -------------------------------------------------------------- -->
+<!-- Research Statement ------------------------------------------- -->
+<!-- -------------------------------------------------------------- -->
+<h1>Research Statement</h1><a name="statement"></a>
+
+<div>
+Here goes my research statement.
+</div>
+
+<p>[<a href="#top" target="_self"><i>go top</i></a>]</p>
+<hr></hr>
+
+<!-- -------------------------------------------------------------- -->
+<!-- Resume ------------------------------------------------------- -->
+<!-- -------------------------------------------------------------- -->
+<h1>Resume</h1><a name="resume"></a>
+
+<div>
+Here is my <a href="http://qingw.github.io/files/simon-resume.pdf" target="_blank">resume</a>.
+</div>
+
+<p>[<a href="#top" target="_self"><i>go top</i></a>]</p>
+<hr></hr>
+
+<!-- -------------------------------------------------------------- -->
+<!-- Contact ------------------------------------------------------ -->
+<!-- -------------------------------------------------------------- -->
+<h1>Contact</h1><a name="contact" id="contact"></a>
+
+<p>
+<b>Mail:</b> Qingwu Wang, Beijing, China.
+</p>
+<p>
+<b>Email:</b> qingwuking at gmail dot com
+</p>
+
+<p>[<a href="#top" target="_self"><i>go top</i></a>]</p>
+<hr></hr>
+
+<!-- -------------------------------------------------------------- -->
+<!-- Resources ---------------------------------------------------- -->
+<!-- -------------------------------------------------------------- -->
+<h1>Resources</h1><a name="resource"></a>
+
+<ul>
+{% for piece in site.data.resources %}
+  <div>
+    <li> 
+	    <p><a href="{{ piece.url }}"><strong><i>{{ piece.title }}</i></strong></a>, {{ piece.description }}
+	</li>
+  </div>
+{% endfor %}
+</ul>
+
+<p>[<a href="#top" target="_self"><i>go top</i></a>]</p>
