@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/site.css">
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   
-  <link rel="alternate" type="application/atom+xml" title="RSS Feed for Qingwu Wang's blog" href="/feed.xml" />
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for Kun Wang's blog" href="/feed.xml" />
 
   
 
@@ -43,11 +43,11 @@
       <!-- ----------------------------------------------------- -->
       <div class="pull-right right logo">
         <div class="name">
-          <a href="/">Qingwu Wang</a><br />
+          <a href="/">Kun Wang</a><br />
           <small>
             <em>
               
-                <a href="/">Master.</a>
+                <a href="/">Ph.D. Cand.</a>
               
             </em>
           </small>
@@ -73,27 +73,32 @@
   <div id="menu"></div>
   <div id="main" class="span9">
   <div class="post">
-    <h2 id="简介">简介</h2>
+    <h2 id="section">简介</h2>
 
 <p>在我设计<a href="https://github.com/nju-cs-quark/arxiv-manager">arXiv Manager</a>的时候，想将这个软件设计成命令行工具形式，从而用户可以完成不同的任务。如果自己去解析参数的话，代码太冗长而单调，所以决定服用成熟的代码。<a href="https://commons.apache.org/proper/commons-cli/">Commons CLI</a>满足这样的需求。
 下面我通过一个完整的例子展示如何准备、开发、测试一个命令行工具。希望本文对有相关需求的读者能有所帮助。</p>
 
-<p>主要参考资料：
-1. <a href="https://commons.apache.org/proper/commons-cli/">Coomons CLI Website (where you can download it)</a>
-2. <a href="https://www.ibm.com/developerworks/cn/java/j-lo-commonscli/">使用 Apache Commons CLI 开发命令行工具</a>
-3. [Hexo在github上构建免费的Web应用][5] - 第4.3节：设置域名</p>
+<p>主要参考资料：</p>
+<ol>
+  <li><a href="https://commons.apache.org/proper/commons-cli/">Coomons CLI Website (where you can download it)</a></li>
+  <li><a href="https://www.ibm.com/developerworks/cn/java/j-lo-commonscli/">使用 Apache Commons CLI 开发命令行工具</a></li>
+  <li>[Hexo在github上构建免费的Web应用][5] - 第4.3节：设置域名</li>
+</ol>
 
-<h2 id="commons-cli-简介">Commons CLI 简介</h2>
+<h2 id="commons-cli-">Commons CLI 简介</h2>
 
 <p>Apache Commons CLI 是 Apache 下面的一个解析命令行输入的工具包，该工具包还提供了自动生成输出帮助文档的功能。
-Apache Commons CLI 支持多种输入参数格式，主要支持的格式有以下几种：
-1. POSIX（Portable Operating System Interface of Unix）中的参数形式，例如 <code>tar -zxvf foo.tar.gz</code>
-2. GNU 中的长参数形式，例如 <code>du --human-readable --max-depth=1</code>
-3. Java 命令中的参数形式，例如 <code>java -Djava.net.useSystemProxies=true Foo</code>
-4. 短杠参数带参数值的参数形式，例如 <code>gcc -O2 foo.c</code>
-5. 长杠参数不带参数值的形式，例如 <code>ant - projecthelp</code></p>
+Apache Commons CLI 支持多种输入参数格式，主要支持的格式有以下几种：</p>
+<ol>
+  <li>POSIX（Portable Operating System Interface of Unix）中的参数形式，例如 <code class="highlighter-rouge">tar -zxvf foo.tar.gz</code></li>
+  <li>GNU 中的长参数形式，例如 <code class="highlighter-rouge">du --human-readable --max-depth=1</code></li>
+  <li>Java 命令中的参数形式，例如 <code class="highlighter-rouge">java -Djava.net.useSystemProxies=true Foo</code></li>
+  <li>短杠参数带参数值的参数形式，例如 <code class="highlighter-rouge">gcc -O2 foo.c</code></li>
+  <li>长杠参数不带参数值的形式，例如 <code class="highlighter-rouge">ant - projecthelp</code></li>
+</ol>
 
 <p>通常情况下命令行处理有三个步骤：定义，解析和询问阶段。本章节将依次解释这三个步骤，并将结合实例来讨论如何通过 Apache Commons CLI 来实现它们。由于本文作者一直从事和存储相关的工作，所以我们将设计一个如何向 Server 中添加 / 删除存储数据源的 CLI。</p>
+
 
   </div>
   </div>

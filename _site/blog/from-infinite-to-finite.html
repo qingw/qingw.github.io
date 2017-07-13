@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../css/site.css">
   <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   
-  <link rel="alternate" type="application/atom+xml" title="RSS Feed for Qingwu Wang's blog" href="/feed.xml" />
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for Kun Wang's blog" href="/feed.xml" />
 
   
 
@@ -43,16 +43,16 @@
       <!-- ----------------------------------------------------- -->
       <div class="pull-right right logo">
         <div class="name">
-          <a href="/">Qingwu Wang</a><br />
+          <a href="/">Kun Wang</a><br />
           <small>
             <em>
               
-                <a href="/">Master.</a>
+                <a href="/">Ph.D. Cand.</a>
               
             </em>
           </small>
         </div>
-        <img class="avatar" src="/images/simon-wang.jpg" alt="My profile picture" />
+        <img class="avatar" src="/images/kun-wang.jpg" alt="My profile picture" />
       </div>
       <div class="clear"></div>
     </header>
@@ -78,20 +78,19 @@
 <h2 id="take-finite-out-of-infinite">Take Finite out of Infinite</h2>
 
 <p><strong>what is left after I take a finite subset out of an infinite set?</strong>
-Consider the <a href="https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel">Hilbert&#39;s paradox of the Grand Hotel</a>. If room 1 is out of services, then we can move the guest currently in room 1 to room 2, the guest currently in room 2 to room 3, and so on, moving every guest from his current room $n$ to room $n+1$. After this, room 1 is not needed. By repeating this procedure, it is possible to cancel any finite number of rooms which are out of services. The answer to the problem is, when we take a finite subset out of an infinite set, the remaining set is still infinite.</p>
+Consider the <a href="https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel">Hilbert’s paradox of the Grand Hotel</a>. If room 1 is out of services, then we can move the guest currently in room 1 to room 2, the guest currently in room 2 to room 3, and so on, moving every guest from his current room $n$ to room $n+1$. After this, room 1 is not needed. By repeating this procedure, it is possible to cancel any finite number of rooms which are out of services. The answer to the problem is, when we take a finite subset out of an infinite set, the remaining set is still infinite.</p>
 
 <h2 id="take-infinite-out-of-infinite">Take Infinite out of Infinite</h2>
+<p><strong>what is left after I take an infinite subset out of an infinite set?</strong></p>
 
-<p><strong>what is left after I take an infinite subset out of an infinite set?</strong>  </p>
+<p><code class="highlighter-rouge">Case 1</code><br />
+Take the <a href="https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel">Hilbert’s paradox of the Grand Hotel</a> as an example. If all rooms of odd number are out of services, then we can first assume only room 1 is not availabe, the guest currently in room 1 is moved to room 2, guest in room 2 to room 3, and so on, moving every guest from his current room $n$ to room $n+1$. After this, room 1 is not needed. By repeating this procedure, it is possible to cancel all odd rooms. In this 
+case, the answer to the problem is, when we take an infinite subset (set of odd numbers) out of an infinite set, the remaining set is still infinite.</p>
 
-<p><code>Case 1</code><br>
-Take the <a href="https://en.wikipedia.org/wiki/Hilbert%27s_paradox_of_the_Grand_Hotel">Hilbert&#39;s paradox of the Grand Hotel</a> as an example. If all rooms of odd number are out of services, then we can first assume only room 1 is not availabe, the guest currently in room 1 is moved to room 2, guest in room 2 to room 3, and so on, moving every guest from his current room $n$ to room $n+1$. After this, room 1 is not needed. By repeating this procedure, it is possible to cancel all odd rooms. In this 
-case, the answer to the problem is, when we take an infinite subset (set of odd numbers) out of an infinite set, the remaining set is still infinite. </p>
-
-<p><code>Case 2</code><br>
+<p><code class="highlighter-rouge">Case 2</code><br />
 Take the set of natural numbers as example. We simply make the infinite subset $A$ be
 $ A = {x \in N | x \neq 1 }$. 
-It&#39;s easy to see that A is infinite, and the complement set of $A$ over $N$ is of size 1. In this case, the answer to the problem is, when we take an infinite subset (set of $A$) out of an infinite set, the remaining set is finite. </p>
+It’s easy to see that A is infinite, and the complement set of $A$ over $N$ is of size 1. In this case, the answer to the problem is, when we take an infinite subset (set of $A$) out of an infinite set, the remaining set is finite.</p>
 
 <p>Here is what confused me most. The cardinality of <em>set of odd numbers</em> and set $A$ are both <em>Aleph-null</em>, why their complements over $N$ are different? Currently, I make myself convinced that the problem occurs due to the ambiguity of <em>complement over N</em>.</p>
 
