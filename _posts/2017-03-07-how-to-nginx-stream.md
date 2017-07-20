@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to do Research
+title: How to Nginx Stream
 categories: [research]
 ---
 
