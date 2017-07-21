@@ -4,6 +4,10 @@ title: docker machine install swarm cluster
 categories: [quantum]
 ---
 
+- @TODO　prepare for creating a shell script to create cluster one key.
+
+- docker-machine create -d virtualbox --engine-env DOCKER_TLS=no --engine-opt host=tcp://0.0.0.0:2375 node1
+
 ```
     1  docker-machine
     2  docker-machine version
