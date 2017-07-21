@@ -4,6 +4,7 @@ title: docker machine install swarm cluster
 categories: [quantum]
 ---
 
+```
     1  docker-machine
     2  docker-machine version
     3  docker-machine create --driver virtualbox containerhost
@@ -75,6 +76,6 @@ categories: [quantum]
    69  telnet 192.168.99.100 2376
    70  docker-machine ssh manager1
    71  history > mini.sh
-
+```
 
 
