@@ -4,7 +4,7 @@ title: docker ca alpine aliyun
 categories: [research]
 ---
 # create docker-ca using docker
-- docker run --rm -it -v $PWD/.docker:/root/.docker anarcher/docker-ca example.com
+- docker run --rm -it -v $PWD/.docker:/root/.docker registry.gzq.chanjet.com/simon/docker-ca:alpine-ali.3.6 example.com
 
 #Dockerfile
 ```
