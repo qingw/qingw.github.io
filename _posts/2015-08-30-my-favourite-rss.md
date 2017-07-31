@@ -4,18 +4,52 @@ title: Some Favourite RSS
 categories: [research]
 ---
 
-Though it seems that [RSS](https://en.wikipedia.org/wiki/RSS) is out-of-date, some outstanding researchers are still blogging with RSS offered. Here are some. I use [Feedly](https://feedly.com) as my RSS reader.
-
-1. [***Shtetl-Optimized***](http://www.scottaaronson.com/blog/). The author [Scott Aaronson](https://en.wikipedia.org/wiki/Scott_Aaronson#cite_note-scottaaronson-8) is a theoretical computer scientist and faculty member in the Electrical Engineering and Computer Science department at the Massachusetts Institute of Technology. This is really a much-read blog which focus on many parts of science: computer science, quantum science and more.
-2. [***Matt Might's Blog***](http://matt.might.net/). Professor Matt Might is not only a good researcher, but also a very nice advisor. Many of his blogs are dedicated to educating how to improve your learning ability and working efficiency.
-3. [***The Quantum Pontiff***](http://dabacon.org/pontiff/). Another nice blog on quantum computing. 
-4. [***Michael Nielsen's Blog***](http://michaelnielsen.org/blog). Michael Nielsen is coauthor of the famous book _Quantum Computation and Quantum Information_. This blog is on quantum computation, computer science, and more.
-5. [***Quantum Computation from Google News***](https://news.google.com/news/section?hl=en&pz=1&ned=us&q=quantum+computing). Google News offers a good way to catch up with the latest news on what you are interested. You can setup your taste on [Google News](https://news.google.com/news/).
-6. [***Quantum Computation From ScienceDaily***](http://www.sciencedaily.com/news/matter_energy/quantum_computing/). More news on quantum computation from another famous science website ScienceDaily.
-7. [***CACM Blogs***](http://cacm.acm.org/blogs/blogroll/). [CACM](http://cacm.acm.org/) is a monthly magazine of the Association for Computing Machinery (ACM). Articles are intended for readers with backgrounds in all areas of computer science and information systems.
-8. [***Journal of the ACM***](http://jacm.acm.org/). The Journal of the ACM is a peer-reviewed scientific journal covering computer science in general, especially theoretical aspects. It is an official journal of the Association for Computing Machinery.
-8. [***IEEE Spectrum***](http://spectrum.ieee.org/). IEEE Spectrum is the flagship magazine and website of the IEEE, the world’s largest professional organization devoted to engineering and the applied sciences. Our charter is to keep over 400,000 members informed about major trends and developments in technology, engineering, and science. Our blogs, podcasts, news and features stories, videos and interactive infographics engage our visitors with clear explanations about emerging concepts and developments with details they can’t get elsewhere (cited from [About IEEE Spectrum](http://spectrum.ieee.org/static/aboutus)).
-9. [***MIT Technology Review***](http://www.technologyreview.com/). MIT Technology Review is a magazine published by the Massachusetts Institute of Technology. It is focused on new technology and how it is commercialized; was mass-marketed to the public; and was targeted at senior executives, researchers, financiers, and policymakers, as well as MIT alumni. MIT Technology Review is also well known for its annual [TR35](http://www.technologyreview.com/lists/innovators-under-35/) list of the top 35 innovators in the world under the age of 35.
-10. [***IQC - Waterloo***](https://uwaterloo.ca/institute-for-quantum-computing/news). A collection of news from [Institute for Quantum Computing, University of Waterloo](https://uwaterloo.ca/institute-for-quantum-computing/). This institute gains its reputation for the brilliant research on quantum computation and quantum information, both theoretical and experimental.
-11. [***News from PRL***](http://journals.aps.org/prl/). 
-12. [***Quantum Physics News***](http://phys.org/physics-news/quantum-physics/). [Phys.org](http://phys.org) is a science, research and technology news website specializing in the hard science subjects of physics, space and earth science, biology, chemistry, electronics, nanotechnology and technology in general. It is known for timely updates of scientific breakthroughs and press releases from major research labs and universities across the world. The site also publishes daily reports, blogs and exclusive comprehensive articles on new peer-reviewed scientific papers.
+```
+<profiles>
+  <profile>
+    <id>java8-doclint-disabled</id>
+    <activation>
+      <jdk>[1.8,)</jdk>
+    </activation>
+    <properties>
+      <javadoc.opts>-Xdoclint:none</javadoc.opts>
+    </properties>
+  </profile>
+</profiles>
+<build>
+  <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9</version>
+        <executions>
+            <execution>
+                <id>attach-javadocs</id>
+                <goals>
+                    <goal>jar</goal>
+                </goals>
+                <configuration>
+                    <additionalparam>${javadoc.opts}</additionalparam>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>3.3</version>
+        <configuration>
+          <reportPlugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <configuration>
+                <additionalparam>${javadoc.opts}</additionalparam>
+              </configuration>
+            </plugin>
+          </reportPlugins>
+        </configuration>
+      </plugin>
+   </plugins>
+</build>
+```
