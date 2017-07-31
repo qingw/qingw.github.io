@@ -6,31 +6,6 @@
 # url: [download url] 
 # supplement: [talk supplement type, be 'Slide', 'Lecture', 'Broke' or 'Link'] 
 ###################################################################################################
-- title: xxx
-  placedate: xxx
-  url: /files/talks/xxx.pptx
-  supplement: Slide
-
-
-
-- title: xxx
-  placedate: xxx
-  url: /files/talks/xxx.pptx
-  supplement: Slide
-
-- title: xxx
-  placedate: xxx.
-  supplement: Broke
-
-- title: xxx
-  placedate: xxx.
-  url: /files/talks/xxx.pptx
-  supplement: Slide
-
-- title: xxx
-  placedate: xxx.
-  url: /files/talks/xxx.pptx
-  supplement: Slide
 
 - title: xxx
   placedate: xxx, December 3, 2015.
