@@ -12,34 +12,34 @@
 # abstract: Here goes the paper's abstract.
 # !WARNING! Do not forget the '-' in the front of @auther indicator.
 ###################################################################################################
-- author: Kun Wang, Nan Wu, Parker Kuklinski, Haixing Hu, Ping Xu and Fangmin Song
-  url: http://link.springer.com/article/10.1007/s11128-016-1353-5
-  title: Grover Walks on a Line with Absorbing Boundaries
+- author: xxx
+  url: http://xxx
+  title: xxx
   year: 2016
-  notes: arXiv:1601.08122
-  publisher: Quantum Information Processing
+  notes: xxx
+  publisher:xxx
   supplement: Article
 
-- author: Kun Wang, Nan Wu, and Fangmin Song
+- author: xxx
   url: /files/papers/nctcs2015.pdf
-  title: On Four Non-Computable Decision Problems
+  title: xxx
   year: 2015
-  notes: Jinhua, Zhejiang, China. Recommended to be published in Journal of Computational Information Systems
-  publisher: National Conference on Theoretical Computer Science (NCTCS)
+  notes: xxx
+  publisher: xxx
   supplement: Article
 
-- author: Kun Wang, Nan Wu, and Fangmin Song
-  url: http://www.jofcis.com/publishedpapers/2015_11_22_8395_8404.pdf
-  title: On Four Non-Computable Decision Problems
+- author: xxx
+  url: http://xxx/xxx.pdf
+  title: xxx
   year: 2015
-  notes: This paper is recommended to be published in this journal by NCTCS 2015
-  publisher: Journal of Computational Information Systems, Vol. 11 (22):8395-8404
+  notes: xxx
+  publisher: xxx
   supplement: Article
 
-- author: Nan Wu, Kun Wang, Haixing Hu, Fangmin Song and Xiangdong Li
-  url: http://proceedings.spiedigitallibrary.org/proceeding.aspx?articleid=2299744
-  title: A Novel Quantum Random Number Generation Algorithm Used by Smartphone Camera
+- author: xxx
+  url: http://xxx/xxx.aspx?articleid=2299744
+  title: xxx
   year: 2015
-  notes: Baltimore, Maryland, United States 
-  publisher: Proc. SPIE 9500, Quantum Information and Computation XIII
+  notes: xxx
+  publisher: xxx
   supplement: Link
