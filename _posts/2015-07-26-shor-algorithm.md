@@ -1,9 +1,7 @@
 ---
 layout: post
-title: IQC - Shor Algorithm
+title: haskell
 categories: [quantum]
 ---
 
-## Introduction
-
-In this post, I will give a description on Shor Algorithm.
+## haskell
