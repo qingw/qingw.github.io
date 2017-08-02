@@ -1,4 +1,10 @@
+---
+layout: post
+title: org mode taking notes
+categories: [emacs]
+---
 
+## from sacha chua
 - Set up a keyboard shortcut to go to your main Org file
 - Use org-refile to file or jump to headings
 - Use org-capture to write notes quickly
