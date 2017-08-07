@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    docker ca alpine aliyun
+    
+  </title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for Qingwu Wang's blog" href="/feed.xml" />
+
+  
+
+  
+
+  
+</head>
+
+<body>
+<!-- 
+  禁用 top-bar：就是在主页的最上面显示一个横向的标题栏
+  <div class="top-bar">
+  </div>
+ -->
+
+  <div class="header-container">
+    <header class="inner">
+      
+      <nav>
+        <a class="" href="/">Home</a>
+        <a class="" href="/research/">Research</a>
+        <a class="" href="/project/">Project</a>
+        <a class="" href="/blog/">Blog</a>
+        <a class="" href="/quark/">Quark</a>
+      </nav>
+      
+
+      <!-- ----------------------------------------------------- -->
+      <!-- My profile ------------------------------------------ -->
+      <!-- ----------------------------------------------------- -->
+      <div class="pull-right right logo">
+        <div class="name">
+          <a href="/">Qingwu Wang</a><br />
+          <small>
+            <em>
+              
+                <a href="/">Master.</a>
+              
+            </em>
+          </small>
+        </div>
+        <img class="avatar" src="/images/simon-wang.jpg" alt="My profile picture" />
+      </div>
+      <div class="clear"></div>
+    </header>
+    <div class="clear"></div>
+  </div>
+
+
+
+  
+
+<article>
+  <h1 class="inner">
+    docker ca alpine aliyun
+  </h1>
+
+  <p class="meta">Friday 21 July 2017</p>
+
+  <div id="menu"></div>
+  <div id="main" class="span9">
+  <div class="post">
+    <h1 id="create-docker-ca-using-docker">create docker-ca using docker</h1>
+<ul>
+  <li>docker run –rm -it -v $PWD/.docker:/root/.docker registry.gzq.chanjet.com/simon/docker-ca:alpine-ali.3.6 example.com</li>
+</ul>
+
+<p>#Dockerfile</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>FROM alpine:3.6
+RUN echo http://mirrors.aliyun.com/alpine/v3.6/main &gt; /etc/apk/repositories &amp;&amp; \
+    echo http://mirrors.aliyun.com/alpine/v3.6/community &gt;&gt; /etc/apk/repositories &amp;&amp; \
+    apk update &amp;&amp; apk upgrade
+
+RUN apk add ruby ruby-dev
+RUN gem sources --add https://gems.ruby-china.org/ --remove https://rubygems.org/
+RUN gem sources -l
+RUN gem install certificate_authority --no-ri --no-rdoc
+ADD ./certgen.rb /root/certgen.rb
+
+WORKDIR /root
+
+VOLUME "/root/.docker"
+
+ENTRYPOINT ["ruby","/root/certgen.rb"]
+</code></pre>
+</div>
+
+<ul>
+  <li>ruby</li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># Generates necessary certificates to ~/.docker
+#
+# Usage:
+#   bundle install
+#   ruby certgen.rb &lt;domain&gt;
+
+require 'certificate_authority'
+require 'fileutils'
+
+if ARGV.empty?
+  puts "Usage: ruby certgen.rb &lt;domain&gt;"
+  exit 1
+end
+
+$domain = ARGV[0]
+
+$certs_path = File.join(ENV['HOME'], '.docker')
+
+def certificate_authority
+  cert_path = File.join($certs_path, 'ca', 'cert.pem')
+  ca_path = File.join($certs_path, 'ca', 'key.pem')
+
+  key_material = if File.exist?(ca_path)
+    key = OpenSSL::PKey::RSA.new(File.read(ca_path))
+    mem_key = CertificateAuthority::MemoryKeyMaterial.new
+    mem_key.public_key = key.public_key
+    mem_key.private_key = key
+    mem_key
+  else
+    mem_key = CertificateAuthority::MemoryKeyMaterial.new
+    mem_key.generate_key
+    mem_key
+  end
+
+  if File.exist?(cert_path)
+    raw_cert = File.read(cert_path)
+    openssl = OpenSSL::X509::Certificate.new(raw_cert)
+    cert = CertificateAuthority::Certificate.from_openssl(openssl)
+    cert.key_material = key_material
+    cert
+  else
+    root = CertificateAuthority::Certificate.new
+    root.subject.common_name = $domain
+    root.serial_number.number = 1
+    root.signing_entity = true
+    root.key_material = key_material
+
+    ca_profile = {
+      "extensions" =&gt; {
+        "keyUsage" =&gt; {
+          "usage" =&gt; [ "critical", "keyCertSign" ]
+        }
+      }
+    }
+
+    root.sign!(ca_profile)
+
+    root
+  end
+end
+
+def server_certificate(root)
+  server = CertificateAuthority::Certificate.new
+  server.subject.common_name = $domain
+  server.serial_number.number = rand(3..100000)
+  server.parent = root
+  server.key_material.generate_key
+  server.sign!
+  server
+end
+
+def client_certificate(root)
+  client = CertificateAuthority::Certificate.new
+  client.subject.common_name = $domain
+  client.serial_number.number = 2
+  client.parent = root
+
+  client.key_material.generate_key
+
+  signing_profile = {
+    "extensions" =&gt; {
+      "extendedKeyUsage" =&gt; {
+        "usage" =&gt; [ "clientAuth" ]
+      }
+    }
+  }
+
+  client.sign!(signing_profile)
+
+  client
+end
+
+root = certificate_authority
+server = server_certificate(root)
+client = client_certificate(root)
+
+[
+  # You can reuse this file to generate more certs
+  ['ca/key.pem', root.key_material.private_key],
+  ['ca/cert.pem', root.to_pem],
+
+  # Those are default filenames expected by Docker
+  ['ca.pem', root.to_pem],
+  ['key.pem', client.key_material.private_key],
+  ['cert.pem', client.to_pem],
+
+  # Those files are supposed to be uploaded to server
+  ["#{$domain}/ca.pem", root.to_pem],
+  ["#{$domain}/key.pem", server.key_material.private_key],
+  ["#{$domain}/cert.pem", server.to_pem]
+].each do |name, contents|
+  path = File.join($certs_path, name)
+  FileUtils.mkdir_p(File.dirname(path))
+  File.write(path, contents)
+  File.chmod(0600, path)
+end
+
+puts "CA certificates are in #{$certs_path}/ca"
+puts "Client certificates are in #{$certs_path}"
+puts "Server certificates are in #{$certs_path}/#{$domain}"
+</code></pre>
+</div>
+
+<p>I. 拷贝服务端证书到远端</p>
+
+<p>脚本生成 Docker daemon需要的键值和证书~/.docker/example.com(example.com 是你的域名).</p>
+
+<p>在服务端拷贝到~/.dockerdirectory下:</p>
+
+<p>rsync -ave ssh ~/.docker/example.com/ root@example.com:~/.docker/</p>
+
+<p>III. 在远端配置Docker</p>
+
+<p>Docker daemon在0.10后支持–tlsverify 来提供加密的远端连接</p>
+
+<p>假设你是用的是 Ubuntu 12.04 LTS并已经安装了Docker .其它环境下可能有些不同.</p>
+
+<p>只需要在/etc/default/docker加入下面配置:</p>
+
+<p>DOCKER_OPTS=”–tlsverify -H=unix:///var/run/docker.sock -H=0.0.0.0:4243 –tlscacert=/root/.docker/ca.pem –tlscert=/root/.docker/cert.pem –tlskey=/root/.docker/key.pem”</p>
+
+<p>之后重启 Docker daemon:</p>
+
+<p>service docker restart</p>
+
+<p>如果有错Docker daemon就会启动不了. 可以通过 under/var/log/upstart/docker.log来调试.</p>
+
+  </div>
+  </div>
+</article>
+
+<p></p>
+<p></p>
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Share System -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- JiaThis Button BEGIN -->
+<!-- <section class="comments inner">
+<div class="jiathis_style">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+</section> -->
+<!-- JiaThis Button END -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Subscribe System -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- <section class="post-footer-self-promotion inner">
+	Thanks for reading! If you are interested in what I shared, you can also follow me in 
+	<a href="https://github.com/kun-wang/">GitHub</a>,
+	<a href="http://weibo.com/u/2474723950/">Weibo</a>.
+	Also, you can subscribe to my posts: 
+	<form action="http://saunier.us8.list-manage.com/subscribe/post?u=3e666bd315f84f1bbdfe80c3b&amp;id=0494cf26c5" method="post"target="_blank">
+	  <input type="email" class="form-control" name="EMAIL" placeholder="your email"
+		><input type="submit" value="Subscribe to my posts" >
+	  Fear not, I hate spam too.
+	</form>
+	<div id="more-articles">
+	  
+	  <p>
+		If you like this post, you can also have a look at <a href="/blog">more posts of mine</a>.
+	  </p>
+	  
+	</div>
+  </div>
+</section> -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Duoshuo Comment System -->
+<!-- ----------------------------------------------------------------- -->
+<!-- Duoshuo Comment BEGIN -->
+
+<!--div class="separator"></div -->
+
+<!--
+<section class="comments inner">
+
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qingw"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+</section>
+-->
+<!-- Duoshuo Comment END -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment System -->
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment BEGIN -->
+<!-- <div class="separator"></div> -->
+<section class="comments inner">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'qingw';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</section>
+<!-- Disqus Comment END -->
+
+
+
+
+
+
+<div class="separator"></div>  
+<!-- ----------------------------------------------------- -->
+<!-- Links in the bottom --------------------------------- -->
+<!-- ----------------------------------------------------- -->
+<div  style="border-bottom: 1px solid #ddd"></div>
+<footer>
+  <p>
+    Copyright © 2015 <a href="blog/notes-on-cest-la-vie.html">C'est La Vie</a>. Made with <a href="http://jekyllrb.com/">Jekyll</a>,
+    hosted on <a href="https://github.com/qingw/qingw.github.io">Github Pages</a>. Theme inspired by <a href="http://willard-yuan.github.io">Yuan Yong</a>.
+  </p>
+  <!-- easy counter -->
+  <p>
+    <a href="http://www.easycounter.com/">
+    <img src="http://www.easycounter.com/counter.php?simongaius"
+    border="0" alt="Web Counters"></a>  hits since June 2015.
+  </p>
+</footer>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40867989-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  /*!
+   * http://github.com/ssaunier/track-outbound-links
+   * Copyright 2013 Sébastien Saunier
+   * @license MIT
+   */
+  !function(e,t){function n(){for(var n=t.getElementsByTagName("a"),a=[],r=0;r<n.length;++r){var o=n[r];o.host!=e.location.host&&a.push(o)}return a}function a(n){for(var a=n.srcElement||n.target;a&&("undefined"==typeof a.tagName||"a"!=a.tagName.toLowerCase()||!a.href);)a=a.parentNode;a&&a.href&&(e._gaq&&_gaq.push(["_trackEvent","Outbound link","Click",a.href]),(!a.target||a.target.match(/^_(self|parent|top)$/i))&&(setTimeout(function(){t.location.href=a.href},150),n.preventDefault?n.preventDefault():n.returnValue=!1))}e.addEventListener("load",function(){var e=n();for(var t in e)e[t].addEventListener("click",a)})}(window,document);
+  var links = document.links;
+  for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+     if (links[i].hostname != window.location.hostname) { links[i].target = '_blank'; }
+  }
+
+  /*
+   * Detect if we are included in an iframe => move.
+   */
+  if (window.top !== window.self
+      && !window.self.location.href.match(/headsha\.re/))
+  {
+    window.top.location.replace(window.self.location.href);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    docker machine install swarm cluster
+    
+  </title>
+  <link rel="stylesheet" href="../css/site.css">
+  <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  
+  <link rel="alternate" type="application/atom+xml" title="RSS Feed for Qingwu Wang's blog" href="/feed.xml" />
+
+  
+
+  
+
+  
+</head>
+
+<body>
+<!-- 
+  禁用 top-bar：就是在主页的最上面显示一个横向的标题栏
+  <div class="top-bar">
+  </div>
+ -->
+
+  <div class="header-container">
+    <header class="inner">
+      
+      <nav>
+        <a class="" href="/">Home</a>
+        <a class="" href="/research/">Research</a>
+        <a class="" href="/project/">Project</a>
+        <a class="" href="/blog/">Blog</a>
+        <a class="" href="/quark/">Quark</a>
+      </nav>
+      
+
+      <!-- ----------------------------------------------------- -->
+      <!-- My profile ------------------------------------------ -->
+      <!-- ----------------------------------------------------- -->
+      <div class="pull-right right logo">
+        <div class="name">
+          <a href="/">Qingwu Wang</a><br />
+          <small>
+            <em>
+              
+                <a href="/">Master.</a>
+              
+            </em>
+          </small>
+        </div>
+        <img class="avatar" src="/images/simon-wang.jpg" alt="My profile picture" />
+      </div>
+      <div class="clear"></div>
+    </header>
+    <div class="clear"></div>
+  </div>
+
+
+
+  
+
+<article>
+  <h1 class="inner">
+    docker machine install swarm cluster
+  </h1>
+
+  <p class="meta">Friday 21 July 2017</p>
+
+  <div id="menu"></div>
+  <div id="main" class="span9">
+  <div class="post">
+    <ul>
+  <li>
+    <p>@TODO　prepare for creating a shell script to create cluster one key.</p>
+  </li>
+  <li>
+    <p>docker-machine create -d virtualbox –engine-env DOCKER_TLS=no –engine-opt host=tcp://0.0.0.0:2375 node1</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>    1  docker-machine
+    2  docker-machine version
+    3  docker-machine create --driver virtualbox containerhost
+    4  brew cask install virtualbox
+    5  brew
+    6  ruby
+    7  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    8  bew tap phinze/homebrew-cask
+    9  brew tap phinze/homebrew-cask
+   10  brew install brew-cask
+   11  brew install brew-cask
+   12  brew tap phinze/homebrew-cask
+   13  brew install brew-cask
+   14  brew install brew-cask
+   15  brew tap caskroom/cask
+   16  brew cask install virtualbox
+   17  history | grep machine
+   18  docker-machine create --driver virtualbox containerhost
+   19   docker-machine env containerhost
+   20  eval "$(docker-machine env containerhost)"
+   21  ifconfig
+   22  ls
+   23  eval "$(docker-machine env containerhost)"
+   24  docker-machine ip containerhost
+   25  docker -machine rm containerhost
+   26  docker-machine rm containerhost
+   27  docker-machine create -d virtualbox local
+   28  docker-machine env local
+   29   eval $(docker-machine env local)
+   30  docker run swarm create
+   31  docker-machine stop local
+   32  docker-machine rm local
+   33  history | grep local
+   34  docker-machine create -d virtualbox --engine-registry-mirror  http://aad0405c.m.daocloud.io local
+   35  eval $(docker-machine env local)
+   36  docker run swarm create
+   37  docker-machine stop local
+   38  docker-machine rm local
+   39  docker-machine create -d virtualbox --engine-registry-mirror  http://aad0405c.m.daocloud.io manager1
+   40  docker-machine ip manager1
+   41  docker-machine create -d virtualbox --engine-registry-mirror  http://aad0405c.m.daocloud.io worker1
+   42  docker-machine ip worker1
+   43  docker-machine create -d virtualbox --engine-registry-mirror  http://aad0405c.m.daocloud.io worker2
+   44  docker-machine ssh manager1
+   45  docker-machine ssh worker1
+   46  docker-machine ssh worker2
+   47  brew install homebrew/nginx/nginx-full --with-stream
+   48  vi /usr/local/nginx/nginx.conf
+   49  vi /usr/local/etc/nginx/nginx.conf
+   50  nginx -t
+   51  nginx -s reload
+   52  nginx 
+   53  nginx -=s reload
+   54  nginx -s reload
+   55  ifconfig
+   56  telnet 192.168.99.100 2377
+   57  telnet 192.168.99.100 2377
+   58  nginx -s reload
+   59  emacs
+   60  nginx -s reload
+   61  nginx
+   62  nginx -s reload
+   63  ifconfig
+   64  ifconfig
+   65  nginx -t
+   66  nginx -s reload
+   67  telnet 192.168.99.100 2375
+   68  telnet 192.168.99.100 2377
+   69  telnet 192.168.99.100 2376
+   70  docker-machine ssh manager1
+   71  history &gt; mini.sh
+</code></pre>
+</div>
+
+
+  </div>
+  </div>
+</article>
+
+<p></p>
+<p></p>
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Share System -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- JiaThis Button BEGIN -->
+<!-- <section class="comments inner">
+<div class="jiathis_style">
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+</section> -->
+<!-- JiaThis Button END -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Subscribe System -->
+<!-- ----------------------------------------------------------------- -->
+
+<!-- <section class="post-footer-self-promotion inner">
+	Thanks for reading! If you are interested in what I shared, you can also follow me in 
+	<a href="https://github.com/kun-wang/">GitHub</a>,
+	<a href="http://weibo.com/u/2474723950/">Weibo</a>.
+	Also, you can subscribe to my posts: 
+	<form action="http://saunier.us8.list-manage.com/subscribe/post?u=3e666bd315f84f1bbdfe80c3b&amp;id=0494cf26c5" method="post"target="_blank">
+	  <input type="email" class="form-control" name="EMAIL" placeholder="your email"
+		><input type="submit" value="Subscribe to my posts" >
+	  Fear not, I hate spam too.
+	</form>
+	<div id="more-articles">
+	  
+	  <p>
+		If you like this post, you can also have a look at <a href="/blog">more posts of mine</a>.
+	  </p>
+	  
+	</div>
+  </div>
+</section> -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Duoshuo Comment System -->
+<!-- ----------------------------------------------------------------- -->
+<!-- Duoshuo Comment BEGIN -->
+
+<!--div class="separator"></div -->
+
+<!--
+<section class="comments inner">
+
+<div class="ds-thread"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"qingw"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = 'http://static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		|| document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+</section>
+-->
+<!-- Duoshuo Comment END -->
+
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment System -->
+<!-- ----------------------------------------------------------------- -->
+<!-- Disqus Comment BEGIN -->
+<!-- <div class="separator"></div> -->
+<section class="comments inner">
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'qingw';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+</section>
+<!-- Disqus Comment END -->
+
+
+
+
+
+
+<div class="separator"></div>  
+<!-- ----------------------------------------------------- -->
+<!-- Links in the bottom --------------------------------- -->
+<!-- ----------------------------------------------------- -->
+<div  style="border-bottom: 1px solid #ddd"></div>
+<footer>
+  <p>
+    Copyright © 2015 <a href="blog/notes-on-cest-la-vie.html">C'est La Vie</a>. Made with <a href="http://jekyllrb.com/">Jekyll</a>,
+    hosted on <a href="https://github.com/qingw/qingw.github.io">Github Pages</a>. Theme inspired by <a href="http://willard-yuan.github.io">Yuan Yong</a>.
+  </p>
+  <!-- easy counter -->
+  <p>
+    <a href="http://www.easycounter.com/">
+    <img src="http://www.easycounter.com/counter.php?simongaius"
+    border="0" alt="Web Counters"></a>  hits since June 2015.
+  </p>
+</footer>
+
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-40867989-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+  /*!
+   * http://github.com/ssaunier/track-outbound-links
+   * Copyright 2013 Sébastien Saunier
+   * @license MIT
+   */
+  !function(e,t){function n(){for(var n=t.getElementsByTagName("a"),a=[],r=0;r<n.length;++r){var o=n[r];o.host!=e.location.host&&a.push(o)}return a}function a(n){for(var a=n.srcElement||n.target;a&&("undefined"==typeof a.tagName||"a"!=a.tagName.toLowerCase()||!a.href);)a=a.parentNode;a&&a.href&&(e._gaq&&_gaq.push(["_trackEvent","Outbound link","Click",a.href]),(!a.target||a.target.match(/^_(self|parent|top)$/i))&&(setTimeout(function(){t.location.href=a.href},150),n.preventDefault?n.preventDefault():n.returnValue=!1))}e.addEventListener("load",function(){var e=n();for(var t in e)e[t].addEventListener("click",a)})}(window,document);
+  var links = document.links;
+  for (var i = 0, linksLength = links.length; i < linksLength; i++) {
+     if (links[i].hostname != window.location.hostname) { links[i].target = '_blank'; }
+  }
+
+  /*
+   * Detect if we are included in an iframe => move.
+   */
+  if (window.top !== window.self
+      && !window.self.location.href.match(/headsha\.re/))
+  {
+    window.top.location.replace(window.self.location.href);
+  }
+</script>
+
+</body>
+</html>
