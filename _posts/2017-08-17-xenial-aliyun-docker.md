@@ -1,8 +1,11 @@
-RUN echo http://mirrors.aliyun.com/alpine/v3.6/main > /etc/apk/repositories && \
-    echo http://mirrors.aliyun.com/alpine/v3.6/community >> /etc/apk/repositories && \
-    apk update && apk upgrade
+---
+layout: post
+title: make your docker container xenial using aliyun 
+categories: [xenial]
+---
 
-echo deb-src http://archive.ubuntu.com/ubuntu xenial main restricted > /etc/apt/source.list && \
+```
+RUN echo deb-src http://archive.ubuntu.com/ubuntu xenial main restricted > /etc/apt/source.list && \
 echo deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted >> /etc/apt/source.list && \
 echo deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe >> /etc/apt/source.list && \
 echo deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted >> /etc/apt/source.list && \
@@ -19,3 +22,4 @@ echo deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted >> /e
 echo deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe >> /etc/apt/source.list && \
 echo deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe >> /etc/apt/source.list && \
 echo deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse >> /etc/apt/source.list
+```
